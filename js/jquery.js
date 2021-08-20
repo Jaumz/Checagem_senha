@@ -27,10 +27,11 @@ $(document).ready(function () {
             $('#remsg').removeClass();
         }  
     })
+    $("#exampleModal").modal('hide');
     $('form').submit(function(event) {
-       validarSenha();
-       return false;
-   });
+     validarSenha();
+     return false;
+ });
 
 });
 
@@ -118,22 +119,21 @@ function forca(password) {
         }
     }
 
-   /* function validarSenha() {
-      var senha1 = document.getElementById("txtPassword").value;
-      var senha2 = document.getElementById("rePassword").value;
-      if (senha1 == senha2) {
-        $('#remsg').removeClass().addClass('Good');  
-        return alert("As senhas coincidem");
-    } else {
-        return false;
+    function validarSenha(){
+        if ($('#msg').hasClass('Short')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Sua senha é muito pequena.");
+        }
+        if ($('#msg').hasClass('Weak')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Sua senha é muito fraca.");
+        }
+        if ($('#msg').hasClass('Good')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Suas senhas coincidem. Obrigado por preencher o formulário!");
+        }
+        if ($('#msg').hasClass('Strong')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Suas senhas coincidem. Obrigado por preencher o formulário!");
+        }
     }
-}*/
-
-function validarSenha(){
-    if ($('#txtPassword').val() == $('#rePassword').val())  {
-        $('#remsg').removeClass().addClass('Good');
-        return alert("As senhas coincidem");
-    } else{
-        return false;
-    }
-}
