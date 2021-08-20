@@ -29,9 +29,9 @@ $(document).ready(function () {
     })
     $("#exampleModal").modal('hide');
     $('form').submit(function(event) {
-     validarSenha();
-     return false;
- });
+       validarSenha();
+       return false;
+   });
 
 });
 
@@ -123,17 +123,26 @@ function forca(password) {
         if ($('#msg').hasClass('Short')) {
             $('#exampleModal').modal('show');
             $('.change').text("Sua senha é muito pequena.");
+            $('.changeb').text("Ok, vou digitar de novo.");
         }
         if ($('#msg').hasClass('Weak')) {
             $('#exampleModal').modal('show');
             $('.change').text("Sua senha é muito fraca.");
+            $('.changeb').text("Ok, vou digitar de novo.");
         }
-        if ($('#msg').hasClass('Good')) {
+        if ($('#txtPassword').val() == $('#rePassword').val()) {
             $('#exampleModal').modal('show');
             $('.change').text("Suas senhas coincidem. Obrigado por preencher o formulário!");
+            $('#buttonm').remove();
         }
-        if ($('#msg').hasClass('Strong')) {
+        if ($('#txtPassword').val() > $('#rePassword').val()) {
             $('#exampleModal').modal('show');
-            $('.change').text("Suas senhas coincidem. Obrigado por preencher o formulário!");
+            $('.change').text("Suas senhas são diferentes, digite corretamente e tente novamente.");
+            $('.buttonm').text("Ok, vou digitar de novo.");
+        }
+        if ($('#txtPassword').val() < $('#rePassword').val()) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Suas senhas são diferentes, digite corretamente e tente novamente.");
+            $('.buttonm').text("Ok, vou digitar de novo.");
         }
     }
