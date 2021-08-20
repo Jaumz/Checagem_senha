@@ -29,9 +29,10 @@ $(document).ready(function () {
     })
     $("#exampleModal").modal('hide');
     $('form').submit(function(event) {
-       validarSenha();
-       return false;
-   });
+        negarsenha();
+        validarSenha();
+        return false;
+    });
 
 });
 
@@ -119,8 +120,8 @@ function forca(password) {
         }
     }
 
-    function validarSenha(){
-        if ($('#msg').hasClass('Short')) {
+    function negarsenha(){
+         if ($('#msg').hasClass('Short')) {
             $('#exampleModal').modal('show');
             $('.change').text("Sua senha é muito pequena.");
             $('.changeb').text("Ok, vou digitar de novo.");
@@ -130,7 +131,25 @@ function forca(password) {
             $('.change').text("Sua senha é muito fraca.");
             $('.changeb').text("Ok, vou digitar de novo.");
         }
-        if ($('#txtPassword').val() == $('#rePassword').val()) {
+    }
+
+    function validarSenha(){
+        if ($('#msg').hasClass('Short')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Sua senha é muito pequena.");
+            $('#buttonm').text("Ok, vou digitar outra mais forte.");
+        }
+        if ($('#msg').hasClass('Weak')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Sua senha é muito fraca.");
+            $('#buttonm').text("Ok, vou digitar outra mais forte.");
+        }
+        if ($('#txtPassword').val() === $('#rePassword').val() && $('#msg').hasClass('Good') && $('#remsg').hasClass('Good')) {
+            $('#exampleModal').modal('show');
+            $('.change').text("Suas senhas coincidem. Obrigado por preencher o formulário!");
+            $('#buttonm').remove();
+        }
+         if ($('#txtPassword').val() === $('#rePassword').val() && $('#msg').hasClass('Strong') && $('#remsg').hasClass('Strong')) {
             $('#exampleModal').modal('show');
             $('.change').text("Suas senhas coincidem. Obrigado por preencher o formulário!");
             $('#buttonm').remove();
