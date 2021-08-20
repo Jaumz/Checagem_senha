@@ -2,36 +2,16 @@ body{
     margin:0;
     padding:0;
     font-family:"arial",heletica,sans-serif;
-    font-size:12px;
+    font-size:14px;
     background: url('https://64.media.tumblr.com/6fe78a2506b17d79c9215e7fd4b10ee5/89fbcc5f1ffb9f8b-da/s500x750/ccb0308e4efd721976cde79e78eadf677c1ee064.png') repeat 0 0;
-    -webkit-animation: 10s linear 0s normal none infinite animate;
-    -moz-animation: 10s linear 0s normal none infinite animate;
-    -ms-animation: 10s linear 0s normal none infinite animate;
-    -o-animation: 10s linear 0s normal none infinite animate;
-    animation: 10s linear 0s normal none infinite animate;
- 
+    -webkit-animation: 10s linear 0s normal none infinite animate; 
 }
  
 @-webkit-keyframes animate {
     from {background-position:0 0;}
     to {background-position: 500px 0;}
 }
- 
-@-moz-keyframes animate {
-    from {background-position:0 0;}
-    to {background-position: 500px 0;}
-}
- 
-@-ms-keyframes animate {
-    from {background-position:0 0;}
-    to {background-position: 500px 0;}
-}
- 
-@-o-keyframes animate {
-    from {background-position:0 0;}
-    to {background-position: 500px 0;}
-}
- 
+
 @keyframes animate {
     from {background-position:0 0;}
     to {background-position: 500px 0;}
