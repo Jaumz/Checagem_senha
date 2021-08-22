@@ -138,10 +138,14 @@ function validarSenha(){
         $('#exampleModal').modal('show');
         $('.change').text("Sua senha é muito pequena.");
         $('#buttonm').text("Ok, vou digitar outra mais forte.");
+        $('#txtPassword').val("");
+        $('#msg').text("").removeClass('Short');
+        $('#rePassword').val(""); 
+        $('#remsg').text("").removeClass('Short'); 
     }
     if ($('#msg').hasClass('Weak')) {
         $('#exampleModal').modal('show');
-        $('.change').text("Sua senha é muito fraca.");
+        $('.change').text("Sua senha é muito fraca, tente novamente com uma mais forte");
         $('#buttonm').text("Ok, vou digitar outra mais forte.");
     }
     if ($('#txtPassword').val() === $('#rePassword').val() && $('#msg').hasClass('Good') && $('#remsg').hasClass('Good')) {
@@ -151,9 +155,9 @@ function validarSenha(){
         $('#exampleModal').on('hide.bs.modal', function (event) {
             $('input').val("");
             $('#txtPassword').val("");
-            $('#msg').text("").removeClass('Good'); 
+            $('#msg').text("").removeClass('Short Weak Good Strong'); 
             $('#rePassword').val("");
-            $('#remsg').text("").removeClass('Good'); 
+            $('#remsg').text("").removeClass('Short Weak Good Strong'); 
         })
     }
     if ($('#txtPassword').val() === $('#rePassword').val() && $('#msg').hasClass('Strong') && $('#remsg').hasClass('Strong')) {
